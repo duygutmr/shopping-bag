@@ -1,0 +1,74 @@
+.container {
+    margin-top: 20px;
+}
+.page-head {
+    position: relative;
+    background-color: rgb(226, 226, 226);
+}
+.page-title {
+    text-align: center;
+}
+
+.ui.card, .ui.cards>.card {
+    width: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    align-items: center;
+}
+
+.image {
+    width: 400px;
+    height: 400px;
+}
+.products-details {
+    display: grid;
+    grid-template-rows: repeat(5, min-content);
+    grid-row-gap: 20px;
+    align-items: center;
+    padding: 20px 0;
+}
+.products-details button {
+    justify-self: start;
+    background-color:  rgb(240, 62, 62) !important;
+    color: #fff !important;
+}
+.shopping-icon {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.counter {
+    top: 5px;
+    color: #000;
+    font-size: 12px;
+    background-color: rgb(240, 62, 62);
+    right: 15px;
+    padding:0 5px;
+    border-radius: 10px;
+    
+}
+
+
+
+
+
+
+
+
+
+/* # BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /wp/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /wp/index.php [L]
+</IfModule>
+# END WordPress */

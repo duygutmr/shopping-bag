@@ -1,15 +1,17 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
-  Link
+  Switch,
+  Route,
+  Link,
+  NavLink
 } from "react-router-dom";
-import './App.css'
+import './Products.css'
 import Image from '../images/hp.jpg'
 import ShoppingIcon from '../svgs/shopping-cart.svg'
-import history from '../history'
 
 
-class App extends React.Component {
+class Products extends React.Component {
 
   state = {
     count: 0,
@@ -31,7 +33,7 @@ class App extends React.Component {
     })
   }
   goShoppingCart = () => {
-    history.push('/sepetim')
+    console.log('gidildi');
 
   }
 
@@ -92,9 +94,10 @@ class App extends React.Component {
           </div>
 
         </div>
+        <ShoppingCart />
       </div>
     );
   }
 }
 
-export default App;
+export default Products;
