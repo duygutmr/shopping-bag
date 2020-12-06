@@ -10,12 +10,19 @@ class ShoppingCart extends React.Component {
     }
 
     componentDidMount() {
+        this.setState({addedProducts: this.getSavedProducts()})
+    }
+
+    getSavedProducts = () => {
         const ids = getInLocal('addedProducts');
         if(!ids) return;
-        let addedProducts = products.filter(product => {
+        return products.filter(product => {
             return ids.includes(product.id)
         })
-        this.setState({addedProducts})
+    }
+
+    rerenderParentCallback = () => {
+        this.setState({addedProducts: this.getSavedProducts() || []})
     }
   
 
@@ -23,17 +30,12 @@ class ShoppingCart extends React.Component {
         return (
             <div className="ui container">
                 <div className="ui cards">
-                {this.state.addedProducts.map((product) => <ProductCard key={product.id} product={product} showTable={false}/>)}
+                {this.state.addedProducts.map((product) => <ProductCard key={product.id} product={product} showTable={false} rerenderParentCallback={this.rerenderParentCallback}/>)}
                     <button className="ui button" onClick={()=> alert('Alışveriş Tamamlandı')}>Alışverişi Tamamla</button>
                 </div>
-    
-              
             </div>
         )
     }
-    
-   
-
 }
 
 export default ShoppingCart

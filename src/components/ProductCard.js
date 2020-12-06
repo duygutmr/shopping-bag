@@ -15,16 +15,21 @@ import { setInLocal, getInLocal } from '../utils/localStorage'
     
       addToCart = () => {
         this.setState({isClicked: !this.state.isClicked})
-        this.props.incrementCount();
         let existing = getInLocal('addedProducts')
         existing = existing ? existing.split(',') : [];
         existing.push(this.props.product.id);
         setInLocal('addedProducts', existing.toString())
+        if(!this.props.rerenderParentCallback) {
+          this.props.incrementCount();
+        }
+        
+        if(this.props.rerenderParentCallback) {
+          this.props.rerenderParentCallback();
+        }
       }
 
       removeFromCart = () => {
         this.setState({isClicked: !this.state.isClicked})
-        this.props.decrementCount();
         let existing = getInLocal('addedProducts')
         const arr = existing.split(',')
         const index = arr.indexOf(this.props.product.id.toString());
@@ -32,7 +37,16 @@ import { setInLocal, getInLocal } from '../utils/localStorage'
           arr.splice(index, 1);
         }
         setInLocal('addedProducts', arr.toString())
+        if(!this.props.rerenderParentCallback) {
+          this.props.decrementCount();
+        }
+        
+        if(this.props.rerenderParentCallback) {
+          this.props.rerenderParentCallback();
+        }
       }
+
+
      
     render() {
         return (
