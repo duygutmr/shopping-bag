@@ -28,9 +28,10 @@
     align-items: center;
     padding: 20px 0;
 }
-.products-details button {
+.products-details button,
+.ui .ui.cards button {
     justify-self: start;
-    background-color:  rgb(240, 62, 62) !important;
+    background-color: rgb(240, 62, 62) !important;
     color: #fff !important;
 }
 .shopping-icon {
@@ -55,20 +56,3 @@
 
 
 
-
-
-
-
-/* # BEGIN WordPress
-# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
-# dynamically generated, and should only be modified via WordPress filters.
-# Any changes to the directives between these markers will be overwritten.
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteBase /wp/
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /wp/index.php [L]
-</IfModule>
-# END WordPress */
