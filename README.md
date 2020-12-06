@@ -1,4 +1,4 @@
-#5fccfe12ea7f22ac0c45c9d0--brave-khorana-a810ed.netlify.app
+5fccfe12ea7f22ac0c45c9d0--brave-khorana-a810ed.netlify.app
 
 # Getting Started with Create React App
 
