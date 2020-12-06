@@ -1,7 +1,7 @@
 export const getInLocal = key => {
     try {
       const data = localStorage.getItem(key)
-      return JSON.parse(data || {})
+      return JSON.parse(data)
     } catch (err) {
       return {}
     }
