@@ -6,6 +6,7 @@ import { getInLocal } from '../utils/localStorage'
 import products from '../products'
 import Button from './Button'
 import EmptyCart from './EmptyCart';
+import Price from './Price'
 
 class ShoppingCart extends React.Component {
     state = {
@@ -15,6 +16,7 @@ class ShoppingCart extends React.Component {
     componentDidMount() {
         this.setState({ addedProducts: this.getSavedProducts() })
     }
+
 
     getSavedProducts = () => {
         const ids = getInLocal('addedProducts');
@@ -28,6 +30,8 @@ class ShoppingCart extends React.Component {
         this.setState({ addedProducts: this.getSavedProducts() || [] })
     }
 
+  
+
 
     render() {
         return (
@@ -39,8 +43,12 @@ class ShoppingCart extends React.Component {
                 : <EmptyCart/>
     }
                 <div className="ui cards">
-                    {this.state.addedProducts.map((product) => <ProductCard key={product.id} product={product} showTable={false} rerenderParentCallback={this.rerenderParentCallback} />)}
+                    {this.state.addedProducts.map((product) => 
+                    <ProductCard key={product.id} product={product} showTable={false} rerenderParentCallback={this.rerenderParentCallback} />)}
+                    <Price />
+                   
                     {this.state.addedProducts.length > 0 ? <Button /> : ''}
+                   
                 </div>
             </div>
         )

@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css'
+import './ProductCard.css'
 import { setInLocal, getInLocal } from '../utils/localStorage'
 
   class ProductCard extends React.Component {
     state = {
         isClicked: true,
+        totalPrice : this.props.product.price
       }
 
       componentDidMount() {
@@ -47,6 +49,13 @@ import { setInLocal, getInLocal } from '../utils/localStorage'
       }
 
 
+      onChange = (event) => {
+        this.setState({
+          totalPrice: event.target.value * this.props.product.price
+        })
+      }
+
+
      
     render() {
         return (
@@ -82,9 +91,22 @@ import { setInLocal, getInLocal } from '../utils/localStorage'
                         <td>FreeDOS</td>
                       </tr>
                     </tbody>
-                  </table>) : null}
+                  </table>) : 
+                  
+                  <div className="total">
+                  <p>Miktar:</p>
+                  <select className="amount" onChange={this.onChange} value={this.state.value}>  
+                  <option name="amount" value="1">1</option>
+                  <option name="amount" value="2">2</option>
+                  <option name="amount" value="3">3</option>
+                  <option name="amount" value="4">4</option>
+                  <option name="amount" value="5">5</option>
+                  </select>
+                  </div>
+                  }
 
-              <h3>{this.props.product.price}</h3>
+              <h3>{this.state.totalPrice} TL</h3>
+             
     
     
                     {this.state.isClicked ?
