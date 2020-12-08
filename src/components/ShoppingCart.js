@@ -53,7 +53,6 @@ class ShoppingCart extends React.Component {
 
 
     render() {
-        console.log(this.state.productTotal);
         return (
             <div className="ui container">
                 {this.state.addedProducts.length > 0 ?
