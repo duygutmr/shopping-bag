@@ -65,7 +65,7 @@ class ShoppingCart extends React.Component {
                     {this.state.addedProducts.map((product) =>
                         <ProductCard key={product.id} product={product} showTable={false} rerenderParentCallback={this.rerenderParentCallback} updateProductTotal={this.updateProductTotal} />)}
                     <h2>
-                        Toplam: {this.state.productTotal.reduce((a, b) => +a + b.amount, 0)}
+                        Toplam: {this.state.productTotal.reduce((a, b) => +a + b.amount, 0)} TL
                     </h2>
                     {this.state.addedProducts.length > 0 ? <Button /> : ''}
 
