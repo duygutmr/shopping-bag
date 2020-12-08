@@ -51,6 +51,7 @@ class ProductCard extends React.Component {
     }
 
     if (this.props.rerenderParentCallback) {
+      this.props.updateProductTotal({id: this.props.product.id, amount: 0});
       this.props.rerenderParentCallback();
     }
   }
